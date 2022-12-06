@@ -1,0 +1,25 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+
+        List<String> result = genParentheses(n,0,0,"");
+        return result;
+        
+    }
+    public List<String> genParentheses(int n,int open ,int close,String s){
+        if(s.length()==2*n){
+            List<String> res = new LinkedList<>();
+            res.add(s);
+            return res;
+        }
+        List<String> result = new LinkedList<>();
+        if(open<n){
+            result.addAll(genParentheses(n, open+1, close, s+"("));
+        }
+
+        if(close<open){
+            result.addAll(genParentheses(n, open, close+1, s+")"));
+        }
+
+        return result;
+    }
+}

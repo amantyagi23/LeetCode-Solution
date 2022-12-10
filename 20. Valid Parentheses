@@ -1,0 +1,38 @@
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> li = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+        if(ch=='('||ch=='{'||ch=='['){
+            li.push(ch);
+            System.out.println(li);
+        }
+        else{
+            if(li.isEmpty()){
+                return false;
+            }
+           else if(!findmatch(li.peek(),ch)){
+                return false;
+            }
+            else{
+                li.pop();
+            }
+        }
+        }
+       return li.isEmpty();
+    
+    
+    }
+     boolean findmatch(char a,char b){
+        if(a== '(' && b==')'){
+            return true;
+        }
+        if(a== '{' && b=='}'){
+            return true;
+        }
+        if(a== '[' && b==']'){
+            return true;
+        }
+        return false;
+    }
+}

@@ -1,0 +1,26 @@
+class Solution {
+    public List<String> fizzBuzz(int n) {
+        if(n==1){
+            List<String> li = new LinkedList<>();
+            li.add("1");
+            return li;
+        }
+        List<String> li = fizzBuzz(n-1);
+        if(n%3==0&&n%5==0){
+            li.add("FizzBuzz");
+        }
+        else if(n%3==0){
+            li.add("Fizz");
+        }
+        else if(n%5==0){
+            li.add("Buzz");
+        }
+        else{
+            
+            li.add(Integer.toString(n));
+        }
+
+        return li;
+        
+    }
+}

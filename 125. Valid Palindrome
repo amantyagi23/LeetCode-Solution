@@ -1,0 +1,37 @@
+class Solution {
+    public boolean makeValid(char ch){
+        if((ch>='a'&& ch <= 'z') || (ch>='A'&& ch <= 'Z') || (ch>='0'&& ch <= '9') ){
+            return true;
+        }
+        return false;
+    }
+    public boolean isPalindrome(String s) {
+        String r = "";
+        if(s.length()==0 || s.isEmpty()){
+            return false;
+        }
+        for(int i=0; i< s.length(); i++){
+            if(makeValid(s.charAt(i))){
+                r=r+s.charAt(i);
+            }
+        }
+        r = r.toLowerCase(); 
+        System.out.println(r);
+        String rev = checkValid(r);
+        System.out.println(r);
+        if(r.equals(rev)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+     String checkValid(String s){
+        if(s.length()==0){
+            return "";
+        }
+        char c = s.charAt(0);
+        String temp = checkValid(s.substring(1))+c;
+        return temp;
+    }
+}

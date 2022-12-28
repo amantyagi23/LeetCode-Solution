@@ -1,0 +1,20 @@
+class Solution {
+    public int minStoneSum(int[] piles, int k) {
+       int n = piles.length;
+        while (k > 0) {
+            Arrays.sort(piles);
+            for (int i=n-1; i>=n/2; i--) {
+                int x = (int)Math.floor(piles[i]/2);
+                piles[i] -= x;
+                k--;
+                    if (k == 0)
+                            break;
+                }
+            }
+        int ans = 0;
+        for (int i :piles)
+        ans += i;
+        return ans;
+         
+    }
+}
